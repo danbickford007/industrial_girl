@@ -10,10 +10,10 @@ class Generator
 
   def create_factories
     @rails_root = rails_root
-    if single
-      create_single
-    else
+    if !@single
       create_multiple
+    else
+      create_single
     end
   end
 
@@ -25,8 +25,13 @@ class Generator
     File.directory?("#{@rails_root}/#{path}")
   end
 
+  def to_boolean(str)
+    str == "true"
+  end
+
   def create_single
     library = Library.new
+    return if file?("spec/factories.rb") and !@force
     file = File.join(@rails_root, 'spec', 'factories.rb')
     File.open(file, 'w') do |f|
       f.puts "require 'factory_girl'"
@@ -54,6 +59,7 @@ class Generator
     library = Library.new
     ActiveRecord::Base.connection.tables.each do |table_name|
       next if table_name == 'schema_migrations'
+      next if file?("spec/factories/#{table_name}.rb") and !@force
       file = File.join(@rails_root, 'spec', 'factories', "#{table_name}.rb")
       File.open(file, 'w') do |f|
         f.puts "require 'factory_girl'"
