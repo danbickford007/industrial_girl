@@ -1,0 +1,6 @@
+require 'root'
+require 'database'
+require 'active_record'
+require 'generator'
+require 'library'
+require 'faker'

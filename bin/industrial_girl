@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby                                                                  
+$LOAD_PATH << File.expand_path('../../lib', __FILE__)                                
+                                                                                     
+require 'industrial_girl' 
+
+single = false
+force = false
+ARGV.each do |arg|
+  single = false if arg == 'multiple'
+  force = true if arg == 'force'
+end
+
+if (ARGV.first == 'generate' or ARGV.first == 'g')
+  Root.new(single, force)
+else
+  puts 'USAGE:'
+  puts 'industrial_girl g single'
+  puts ' creates single file with all factories in spec/factories.rb'
+  puts 'industrial_girl g multiple'
+  puts ' creates multiple factories within seperate files in spec/factories/'
+end
