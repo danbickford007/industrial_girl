@@ -1,6 +1,9 @@
 # IndustrialGirl
 
-TODO: Write a gem description
+[![Build Status](https://secure.travis-ci.org/danbickford007/industrial_girl.png)](http://travis-ci.org/danbickford007/industrial_girl?branch=master)
+
+Industrial Girl generates factories for Factory Girl using Faker.  You are able to generate your 
+factories in a single file or in multiple files.
 
 ## Installation
 
