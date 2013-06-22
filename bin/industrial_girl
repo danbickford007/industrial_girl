@@ -6,7 +6,7 @@ require 'industrial_girl'
 single = false
 force = false
 ARGV.each do |arg|
-  single = false if arg == 'multiple'
+  single = true if arg == 'single'
   force = true if arg == 'force'
 end
 
