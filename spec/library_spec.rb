@@ -23,4 +23,54 @@ describe Library do
 
   end
 
+  describe "#name" do 
+
+    context 'determining which faker to use' do
+
+      it 'should use faker name if includes name' do
+        library.column_name = 'username'
+        Faker::Name.should_receive(:name)
+        library.name
+      end
+      
+      it 'should use faker email if includes mail' do
+        library.column_name = 'theemail'
+        Faker::Internet.should_receive(:email)
+        library.name
+      end
+      
+      it 'should use faker address if includes address' do
+        library.column_name = 'theaddress'
+        Faker::Address.should_receive(:street_address)
+        library.name
+      end
+      
+      it 'should use faker city if includes city' do
+        library.column_name = 'thecity'
+        Faker::Address.should_receive(:city)
+        library.name
+      end
+      
+      it 'should use faker state if includes state' do
+        library.column_name = 'thestate'
+        Faker::Address.should_receive(:state_abbr)
+        library.name
+      end
+      
+      it 'should use faker zip if includes zip' do
+        library.column_name = 'thezip'
+        Faker::Address.should_receive(:zip_code)
+        library.name
+      end
+      
+      it 'should use faker company catch pharse if no match found' do
+        library.column_name = 'xxxxxxx'
+        Faker::Company.should_receive(:catch_phrase)
+        library.name
+      end
+
+    end
+
+  end
+
 end
