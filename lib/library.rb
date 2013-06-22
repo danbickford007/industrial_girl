@@ -20,6 +20,7 @@ class Library
     when @column_name.include?('city') then "'#{Faker::Address.city}'"
     when @column_name.include?('state') then "'#{Faker::Address.state_abbr}'"
     when @column_name.include?('zip') then "'#{Faker::Address.zip_code}'"
+    else "'#{Faker::Company.catch_phrase}'"
     end
     
   end
