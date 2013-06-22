@@ -13,15 +13,28 @@ class Library
   end
 
   def name
-    "'#{Faker::Name.name}'"
+    case
+    when @column_name.include?('name') then "'#{Faker::Name.name}'"
+    when @column_name.include?('mail') then "'#{Faker::Internet.email}'"
+    when @column_name.include?('address') then "'#{Faker::Address.street_address}'"
+    when @column_name.include?('city') then "'#{Faker::Address.city}'"
+    when @column_name.include?('state') then "'#{Faker::Address.state_abbr}'"
+    when @column_name.include?('zip') then "'#{Faker::Address.zip_code}'"
+    end
+    
   end
 
   def date
-    '{ 1.years.ago }'
+    num = Random.new.rand(1..10)
+    "{ #{num}.days.ago }"
   end
 
   def int
-    Random.new.rand(0..1000)
+    if @column_name.include?('zip') 
+      "'#{Faker::Address.zip_code}'"
+    else
+      Random.new.rand(0..1000)
+    end
   end
 
 
