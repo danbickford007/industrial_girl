@@ -14,8 +14,10 @@ if (ARGV.first == 'generate' or ARGV.first == 'g')
   Root.new(single, force)
 else
   puts 'USAGE:'
+  puts 'industrial_girl g'
+  puts '  creates all factories within spec/factories'
   puts 'industrial_girl g single'
-  puts ' creates single file with all factories in spec/factories.rb'
-  puts 'industrial_girl g multiple'
-  puts ' creates multiple factories within seperate files in spec/factories/'
+  puts '  creates single file with all factories in spec/factories.rb'
+  puts 'industrial_girl g force'
+  puts '  overwrites any factories already generated'
 end

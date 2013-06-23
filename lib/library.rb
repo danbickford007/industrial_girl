@@ -8,6 +8,7 @@ class Library
            when type == :string then :name
            when type == :integer then :int
            when type == :datetime then :date
+           else :name
            end
     self.send(call)
   end

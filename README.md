@@ -21,7 +21,16 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+cd to rails root
+
+get usage
+  industrial_girl
+create multiple factory files within spec/factories directory
+  industrial_girl g or industrial_girl generate 
+create a single factory file with spec
+  industrial_girl g single
+if you already have factories, but want industrial_girl to overwrite them and make new factories(you can still pass the single argument if needed)
+  industrial_girl g force
 
 ## Contributing
 
