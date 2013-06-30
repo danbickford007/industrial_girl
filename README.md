@@ -32,7 +32,7 @@ create a single factory file with spec
 if you already have factories, but want industrial_girl to overwrite them and make new factories(you can still pass the single argument if needed)
   industrial_girl g force
 
-within your rails app Gemfile, you may need to set the following,
+within your rails app Gemfile, you may need to set the following if you get the following error(Factory already registered),
 gem "factory_girl_rails", :require=>false
 
 ## Contributing
