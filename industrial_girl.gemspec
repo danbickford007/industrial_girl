@@ -23,6 +23,8 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake"
   spec.add_development_dependency "rspec"
   spec.add_dependency "faker"
-  spec.add_dependency 'activesupport', '3.2.13'
+  if RUBY_VERSION == '1.9.2'
+    spec.add_dependency 'activesupport', '3.2.13'
+  end
   spec.add_dependency "activerecord"
 end
