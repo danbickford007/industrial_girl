@@ -63,6 +63,18 @@ describe Library do
         library.name
       end
       
+      it 'should use faker phone if includes phone' do
+        library.column_name = 'thephone'
+        Faker::PhoneNumber.should_receive(:phone_number)
+        library.name
+      end
+      
+      it 'should use faker domain name if includes url' do
+        library.column_name = 'theurl'
+        Faker::Internet.should_receive(:domain_name)
+        library.name
+      end
+      
       it 'should use faker company catch pharse if no match found' do
         library.column_name = 'xxxxxxx'
         Faker::Company.should_receive(:catch_phrase)

@@ -21,6 +21,8 @@ class Library
     when @column_name.include?('city') then "'#{Faker::Address.city}'"
     when @column_name.include?('state') then "'#{Faker::Address.state_abbr}'"
     when @column_name.include?('zip') then "'#{Faker::Address.zip_code}'"
+    when @column_name.include?('phone') then "'#{Faker::PhoneNumber.phone_number}'"
+    when @column_name.include?('url') then "'#{Faker::Internet.domain_name}'"
     else "'#{Faker::Company.catch_phrase}'"
     end
     
